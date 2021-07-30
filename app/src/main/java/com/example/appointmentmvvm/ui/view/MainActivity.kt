@@ -1,11 +1,11 @@
-package com.example.appointmentmvvm.view
+package com.example.appointmentmvvm.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.appointmentmvvm.databinding.ActivityMainBinding
-import com.example.appointmentmvvm.viewmodel.QuoteViewModel
+import com.example.appointmentmvvm.ui.viewmodel.QuoteViewModel
 
 class MainActivity : AppCompatActivity() {
 
