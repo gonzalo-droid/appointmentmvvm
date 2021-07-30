@@ -3,6 +3,7 @@ package com.example.appointmentmvvm.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.appointmentmvvm.databinding.ActivityMainBinding
 import com.example.appointmentmvvm.ui.viewmodel.QuoteViewModel
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
             binding.tvQuote.text = currentQuote.quote
             binding.tvAuthor.text = currentQuote.author
         })
+
+        quoteViewModel.isLoading.observe(this, Observer {
+            binding.progress.isVisible = it
+        })
+
 
         binding.viewContainer.setOnClickListener {
             quoteViewModel.randomQuote()
