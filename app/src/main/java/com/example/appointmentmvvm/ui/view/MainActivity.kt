@@ -7,7 +7,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.example.appointmentmvvm.databinding.ActivityMainBinding
 import com.example.appointmentmvvm.ui.viewmodel.QuoteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
@@ -23,11 +25,15 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        quoteViewModel.onCreate()
+
         quoteViewModel.quoteModel.observe(this, Observer { currentQuote ->
             binding.tvQuote.text = currentQuote.quote
             binding.tvAuthor.text = currentQuote.author
         })
 
+
+        //processbar active
         quoteViewModel.isLoading.observe(this, Observer {
             binding.progress.isVisible = it
         })
